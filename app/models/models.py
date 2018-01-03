@@ -16,14 +16,27 @@ class Mentor(db.Model):
     phone_number = db.Column(db.String(255))
     stack = db.Column(db.String(255))
     stack_details = db.Column(db.String(255))
-    available = db.Column(db.Boolean, default=True)
+    email = db.Column(db.String(255))
+    slack_team = db.Column(db.String(255))
+    blog = db.Column(db.String(255))
+    gitprofile = db.Column(db.String(255))
+    fbprofile = db.Column(db.String(255))
+    linkedinprofile = db.Column(db.String(255))
 
-    def __init__(self, full_name, phone_number, stack, stack_details=None):
+    def __init__(self, full_name,
+                 phone_number, stack, stack_details, email,
+                 slack_team, blog, linkedin_profile=None,
+                 git_profile=None, fb_profile=None):
         self.full_name = full_name
-        self.phone_number = phone_number
+        self.contacts = phone_number
         self.stack = stack
         self.stack_details = stack_details
-
+        self.email = email
+        self.slack_team = slack_team
+        self.blog = blog
+        self.linkedinprofile = linkedin_profile
+        self.gitprofile = git_profile
+        self.fbprofile = fb_profile
     def save(self):
         try:
             db.session.add(self)
