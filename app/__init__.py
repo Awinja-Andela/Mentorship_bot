@@ -3,10 +3,12 @@ import os
 from flask import Flask
 from flask_restful import Api
 from config import config
+
 from app.bot.app_bot import MentorBot, MentorsByStack
 from app.models import db
 
 basedir = os.path.abspath(os.path.dirname(__file__))
+
 
 def create_app(config_name):
     app = Flask(__name__)
@@ -19,6 +21,7 @@ def create_app(config_name):
     with app.app_context():
         db.create_all()
     return app
+
 
 app = create_app(os.getenv('BOT_CONFIG') or 'default')
 false = "false"

@@ -87,6 +87,7 @@ celerybeat-schedule
 venv/
 ENV/
 
+
 # Spyder project settings
 .spyderproject
 .spyproject
@@ -102,3 +103,6 @@ ENV/
 
 #local files and folder
 settings
+
+.idea/
+migrations

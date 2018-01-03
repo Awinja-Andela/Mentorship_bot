@@ -3,7 +3,8 @@ This is a Facebook Hackathon Project.
 This bot is meant to link up a mentor and a mentee who do similar stacks or want to start on a new stack.
 This Bot is built using :
 - Firebase 
-- SQlite
+- Postgres DB
 - Messenger Bot
 - Flask
-And hosted on heroku
+The webhook is hosted on heroku
+- https://bot-production.herokuapp.com/webhook

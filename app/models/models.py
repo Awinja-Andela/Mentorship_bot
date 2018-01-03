@@ -1,11 +1,19 @@
-from . import db
+import os
+import inspect
+import sys
+currentdir = os.path.dirname(os.path.abspath(
+    inspect.getfile(inspect.currentframe())))
+parentdir = os.path.dirname(currentdir)
+sys.path.insert(0, parentdir)
+from flask_sqlalchemy import SQLAlchemy
 
+db = SQLAlchemy()
 
 class Mentor(db.Model):
     __tablename__ = "mentor"
     id = db.Column(db.Integer, primary_key=True)
     full_name = db.Column(db.String(255))
-    contacts = db.Column(db.String(255))
+    phone_number = db.Column(db.String(255))
     stack = db.Column(db.String(255))
     stack_details = db.Column(db.String(255))
     email = db.Column(db.String(255))
@@ -29,7 +37,6 @@ class Mentor(db.Model):
         self.linkedinprofile = linkedin_profile
         self.gitprofile = git_profile
         self.fbprofile = fb_profile
-
     def save(self):
         try:
             db.session.add(self)
